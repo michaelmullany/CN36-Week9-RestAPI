@@ -5,8 +5,9 @@ const { checkEmailValid, checkEmailValidUpdate, hashPass, comparePass } = requir
 const userRouter = Router();
 
 // use http verb post to add data to our movie endpoint
+userRouter.get("/login", getUser, comparePass);
+
 userRouter.post("/user", checkEmailValid, hashPass, addUser);
-userRouter.get("/user/login", getUser, comparePass);
 userRouter.get("/user", listUsers);
 userRouter.put("/user", checkEmailValidUpdate, updateUser);
 userRouter.delete("/user", deleteUser);
